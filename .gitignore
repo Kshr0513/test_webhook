@@ -1,0 +1,38 @@
+# ===== build artifacts =====
+*.o
+*.a
+*.so
+*.dylib
+*.out
+main
+
+# ===== dependency files =====
+*.d
+
+# ===== make =====
+Makefile.bak
+
+# ===== macOS =====
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ===== editor / IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== environment / secrets =====
+.env
+.env.*
+*.secret
+webhook.txt
+
+# ===== logs =====
+*.log
+
+# ===== temporary =====
+tmp/
+temp/
