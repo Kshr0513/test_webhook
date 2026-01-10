@@ -1,0 +1,4 @@
+
+namespace funcWebhook{
+    void sendMessage();
+}
