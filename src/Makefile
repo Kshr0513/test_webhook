@@ -1,17 +1,20 @@
-CC = g++
-CFLAGS = -std=c++20
+CXX = g++
+CXXFLAGS = -std=c++20 -I../inc
 TARGET = main
-SRCS = main.cpp
+
+SRCS = main.cpp funcJson.cpp funcWebhook.cpp
 OBJS = $(SRCS:.cpp=.o)
-INCDIR = -I../inc
-LIBDIR =
+
 LIBS = -lcurl
+
 $(TARGET): $(OBJS)
-	$(CC) -o $@ $^ $(LIBDIR) $(LIBS)
-$(OBJS): $(SRCS)
-	$(CC) $(CFLAGS) $(INCDIR) -c $(SRCS)
-all: clean $(OBJS) $(TARGET)
+	$(CXX) -o $@ $^ $(LIBS)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $<
+
 clean:
-	-rm -f $(OBJS) $(TARGET) *.d
+	rm -f $(OBJS) $(TARGET)
+
 run: $(TARGET)
 	./$(TARGET)
