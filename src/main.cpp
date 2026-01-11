@@ -24,4 +24,6 @@ https://qiita.com/yohm/items/0f389ba5c5de4e2df9cf
 https://note.com/brain_up0505/n/n3da8b5a584a9
 discord webhook リファレンス
 https://discord.com/developers/docs/resources/webhook
+全人類、いますぐ Discord Webhook を使いこなそう
+https://zenn.dev/discorders/articles/discord-webhook-guide
 */

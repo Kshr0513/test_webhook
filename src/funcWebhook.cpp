@@ -2,8 +2,11 @@
 #include <curl/curl.h>
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <json.hpp>
 #include "funcJson.h"
 using namespace std;
+using json = nlohmann::json;
 
 namespace funcWebhook{
     void sendMessage(){
@@ -19,14 +22,21 @@ namespace funcWebhook{
             //POSTリクエストの設定
             curl_easy_setopt(hnd, CURLOPT_POST, 1);
             //Url(discordのWebhookURL)の設定
-            curl_easy_setopt(hnd, CURLOPT_URL, "Discord Webhook Url");
+            string filename = "pram.json";
+            ifstream ifs(filename.c_str());
+            string url;
+            if(ifs.good()){
+                json j;
+                ifs >> j;
+                url = j["webhookUrl"]["value"];
+            }
+            curl_easy_setopt(hnd, CURLOPT_URL, url.c_str());
             //ヘッダー情報の設定
             struct curl_slist* headers = nullptr;
             headers = curl_slist_append(headers, "Content-Type: application/json");
             curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
 
             //POSTデータの設定
-            //curl_easy_setopt(hnd, CURLOPT_POSTFIELDS,"payload_json={\"content\": \"Hello! From C++ program To Discord channel\"}");
             string body = funcJson::makeStrJsonFormat("JSONフォーマットの関数化");
             curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, body.c_str());
             //データサイズの設定
