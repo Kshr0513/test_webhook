@@ -1,6 +1,6 @@
 {
     "webhookUrl": {
         "name": "discord",
-        "value": "https://discord.com/api/webhooks/1459177925877174465/h_QrpxwXwwMAKWNaHQ8l9Aw4ol_wJPawOieixDnvmFyhnJ6LR5FkIGku1AoHPLDBfn-B"
+        "value": "https://discord.com/api/webhooks/"
     }
 }
