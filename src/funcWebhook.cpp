@@ -19,7 +19,7 @@ namespace funcWebhook{
             //POSTリクエストの設定
             curl_easy_setopt(hnd, CURLOPT_POST, 1);
             //Url(discordのWebhookURL)の設定
-            curl_easy_setopt(hnd, CURLOPT_URL, "https://discord.com/api/webhooks/1459177925877174465/h_QrpxwXwwMAKWNaHQ8l9Aw4ol_wJPawOieixDnvmFyhnJ6LR5FkIGku1AoHPLDBfn-B");
+            curl_easy_setopt(hnd, CURLOPT_URL, "Discord Webhook Url");
             //ヘッダー情報の設定
             struct curl_slist* headers = nullptr;
             headers = curl_slist_append(headers, "Content-Type: application/json");
